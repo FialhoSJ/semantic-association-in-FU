@@ -1,0 +1,24 @@
+schema_version: 1
+name: cifar10_fedavg_alpha05
+seed: 42
+deterministic: true
+device: auto
+results_root: results
+save_each_round: false
+dataset:
+  name: cifar10
+  root: data
+  download: true
+federated:
+  algorithm: fedavg
+  num_clients: 20
+  clients_per_round: 10
+  global_rounds: 100
+  local_epochs: 5
+  batch_size: 64
+  learning_rate: 0.01
+  non_iid_alpha: 0.5
+  min_client_samples: 10
+model:
+  name: simple_cnn
+  width: 32
